@@ -7,23 +7,35 @@
 	br
 	| Font family
 	select#fontFamily
-		option(value='Serif') Serif
+		option(value='Andale Mono') Andale Mono
 		option(value='Arial') Arial
-		option(value='Sans-Serif') Sans-Serif
-		option(value='Tahoma') Tahoma
-		option(value='Verdana') Verdana
+		option(value='Arial Black') Arial Black
+		option(value='Courier New') Courier New
+		option(value='Helvetica') Helvetica
 		option(value='Lucida Sans Unicode') Lucida Sans Unicode
+		option(value='Sans-Serif') Sans-Serif
+		option(value='Serif') Serif
+		option(value='Symbol') Symbol
+		option(value='Tahoma') Tahoma
+		option(value='Terminal') Terminal
+		option(value='Times New Roman') Times New Romain
+		option(value='Verdana') Verdana
+		option(value='Webdings') Webdings
+
 	br
 	| Font size
 	select#fontSize
-		option(value='8') 8
-		option(value='10') 10
-		option(value='12') 12
-		option(value='14') 14
-		option(value='16') 16
-		option(value='18') 18
-		option(value='20') 20
-		option(value='22') 22
+		option(value='8') 8pt
+		option(value='10') 10pt
+		option(value='12') 12pt
+		option(value='14') 14pt
+		option(value='16') 16pt
+		option(value='18') 18pt
+		option(value='20') 20pt
+		option(value='22') 22pt
+	br
+	| Font color
+	input#fontColor.color(value='000000')
 	br
 	b Background
 	br

@@ -13,8 +13,8 @@ drawCanvas = ->
   context.fillStyle = lingrad
   context.fillRect(0,0,canvas.width,canvas.height)
 
-  context.font = $('#fontSize').val()+'px '+$('#fontFamily').val()
-  context.fillStyle = "blue"
+  context.font = $('#fontSize').val()+'pt '+$('#fontFamily').val()
+  context.fillStyle = '#'+$('#fontColor').val()
   context.fillText(text, 150, 100)
 
 getNodeText = ->
