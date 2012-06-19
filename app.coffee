@@ -5,6 +5,7 @@ assets = require 'connect-assets'
 app = express()
 app.use assets()
 app.set 'view engine', 'jade'
+app.use express.static(__dirname+'/public')
 
 app.get '/', (req, resp) ->
 	Canvas = require('canvas')
@@ -35,7 +36,7 @@ app.get '/', (req, resp) ->
 	stream.on 'data', (chunk)->
 		out.write(chunk);
 
-	resp.send '<img src="' + canvas.toDataURL() + '" />'
-	#resp.render 'index'
+	# resp.send '<img src="' + canvas.toDataURL() + '" />'
+	resp.render 'index'
 
 app.listen process.env.VMC_APP_PORT or 3000, -> console.log 'Listening...'
