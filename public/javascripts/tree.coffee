@@ -99,25 +99,9 @@ zNodes = [
   drag: false
  ]
 
-drawCanvas = (text) ->
-  canvas = document.getElementById("canvas")
-  context = canvas.getContext("2d")
-  context.clearRect(0, 0, canvas.width, canvas.height)
-  context.font = "20pt Calibri"
-  context.fillStyle = "blue"
-  context.fillText(text, 150, 100)
 
 className = "dark"
 newCount = 1
 $(document).ready ->
   $.fn.zTree.init $("#treeDemo"), setting, zNodes
   $("#selectAll").bind "click", selectAll
-
-  $('#previewButton').click ->
-    zTree = $.fn.zTree.getZTreeObj("treeDemo")
-    nodes = zTree.getSelectedNodes()
-    if nodes.length<1
-      alert 'please select a node first'
-    else
-      nodeName = nodes[0].name
-      drawCanvas nodeName
