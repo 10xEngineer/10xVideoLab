@@ -1,19 +1,19 @@
 beforeDrag = (treeId, treeNodes) ->
-  false
+  true
 
 beforeEditName = (treeId, treeNode) ->
   className = (if className is "dark" then "" else "dark")
   showLog "[ " + getTime() + " beforeEditName ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name
   zTree = $.fn.zTree.getZTreeObj("treeDemo")
   zTree.selectNode treeNode
-  confirm "Start node '" + treeNode.name + "' editorial status?"
+  # confirm "Start node '" + treeNode.name + "' editorial status?"
 
 beforeRemove = (treeId, treeNode) ->
   className = (if className is "dark" then "" else "dark")
   showLog "[ " + getTime() + " beforeRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name
   zTree = $.fn.zTree.getZTreeObj("treeDemo")
   zTree.selectNode treeNode
-  confirm "Confirm delete node '" + treeNode.name + "' it?"
+  # confirm "Confirm delete node '" + treeNode.name + "' it?"
 
 onRemove = (e, treeId, treeNode) ->
   showLog "[ " + getTime() + " onRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name
@@ -94,12 +94,30 @@ setting =
 zNodes = [
   id: 1
   pId: 0
-  name: "root node"
+  name: "Chapters"
   open: true
+  drag: false
  ]
+
+drawCanvas = (text) ->
+  canvas = document.getElementById("canvas")
+  context = canvas.getContext("2d")
+  context.clearRect(0, 0, canvas.width, canvas.height)
+  context.font = "20pt Calibri"
+  context.fillStyle = "blue"
+  context.fillText(text, 150, 100)
 
 className = "dark"
 newCount = 1
 $(document).ready ->
   $.fn.zTree.init $("#treeDemo"), setting, zNodes
   $("#selectAll").bind "click", selectAll
+
+  $('#previewButton').click ->
+    zTree = $.fn.zTree.getZTreeObj("treeDemo")
+    nodes = zTree.getSelectedNodes()
+    if nodes.length<1
+      alert 'please select a node first'
+    else
+      nodeName = nodes[0].name
+      drawCanvas nodeName

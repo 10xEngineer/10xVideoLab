@@ -6,3 +6,19 @@ body {
 a {
   color: #00B7FF;
 }
+
+#left{
+	width: 400px;
+	float: left;
+}
+
+
+#right{
+	float: left;
+}
+
+#preview {
+	width : 500px;
+	height: 375px;
+	border: 2px solid;
+}
