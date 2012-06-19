@@ -1,3 +1,10 @@
+readURL = (input)->
+  reader = new FileReader()
+  reader.onload = (e) ->
+    $('#previewImage').prop('src',e.target.result)
+  reader.readAsDataURL(input.files[0])
+window.readURL = readURL
+
 drawCanvas = ->
   text = getNodeText()
   if text ==''
@@ -12,6 +19,17 @@ drawCanvas = ->
   lingrad.addColorStop(1, '#'+$('#color2').val())
   context.fillStyle = lingrad
   context.fillRect(0,0,canvas.width,canvas.height)
+
+  ###
+  img = new Image
+  img.onload = ->
+    context.drawImage(img,0,0)
+  img.src = 'file:///tmp/1.gif'
+  ###
+
+  img = new Image
+  img.src =$('#previewImage').prop('src')
+  context.drawImage(img,0,0)
 
   context.font = $('#fontSize').val()+'pt '+$('#fontFamily').val()
   context.fillStyle = '#'+$('#fontColor').val()

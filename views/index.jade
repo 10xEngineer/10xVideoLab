@@ -4,50 +4,69 @@
 		ul#treeDemo.ztree
 	br
 	b Font
-	br
-	| Font family
-	select#fontFamily
-		option(value='Andale Mono') Andale Mono
-		option(value='Arial') Arial
-		option(value='Arial Black') Arial Black
-		option(value='Courier New') Courier New
-		option(value='Helvetica') Helvetica
-		option(value='Lucida Sans Unicode') Lucida Sans Unicode
-		option(value='Sans-Serif') Sans-Serif
-		option(value='Serif') Serif
-		option(value='Symbol') Symbol
-		option(value='Tahoma') Tahoma
-		option(value='Terminal') Terminal
-		option(value='Times New Roman') Times New Romain
-		option(value='Verdana') Verdana
-		option(value='Webdings') Webdings
+	table
+		tr
+			td Font family
+			td
+				select#fontFamily
+					option(value='Andale Mono') Andale Mono
+					option(value='Arial') Arial
+					option(value='Arial Black') Arial Black
+					option(value='Courier New') Courier New
+					option(value='Helvetica') Helvetica
+					option(value='Lucida Sans Unicode') Lucida Sans Unicode
+					option(value='Sans-Serif') Sans-Serif
+					option(value='Serif') Serif
+					option(value='Symbol') Symbol
+					option(value='Tahoma') Tahoma
+					option(value='Terminal') Terminal
+					option(value='Times New Roman') Times New Romain
+					option(value='Verdana') Verdana
+					option(value='Webdings') Webdings
 
-	br
-	| Font size
-	select#fontSize
-		option(value='8') 8pt
-		option(value='10') 10pt
-		option(value='12') 12pt
-		option(value='14') 14pt
-		option(value='16') 16pt
-		option(value='18') 18pt
-		option(value='20') 20pt
-		option(value='22') 22pt
-	br
-	| Font color
-	input#fontColor.color(value='000000')
+		tr
+			td Font size
+			td
+				select#fontSize
+					option(value='8') 8pt
+					option(value='10') 10pt
+					option(value='12') 12pt
+					option(value='14') 14pt
+					option(value='16') 16pt
+					option(value='18') 18pt
+					option(value='20') 20pt
+					option(value='22') 22pt
+		tr
+			td Font color
+			td
+				input#fontColor.color(value='000000')
 	br
 	b Background
-	br
-	| Color 1
-	input#color1.color
-	br
-	| Color 2
-	input#color2.color
+	table
+		tr
+			td Color 1
+			td
+				input#color1.color
+		tr
+			td Color 2
+			td
+				input#color2.color
+		tr
+			td Image
+			td
+				input#imageFile(type='file',onchange='readURL(this);')
+		tr
+			td Image Preview
+			td
+				img#previewImage
+
+
 #right
 	b Preview
 	#preview
 		canvas#canvas
+	
+
 	b Background Music
 	br
 	#buttons
