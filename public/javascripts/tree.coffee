@@ -2,6 +2,9 @@ beforeDrag = (treeId, treeNodes) ->
   true
 
 beforeEditName = (treeId, treeNode) ->
+  if treeNode.name == 'Chapters'
+    return false
+
   className = (if className is "dark" then "" else "dark")
   showLog "[ " + getTime() + " beforeEditName ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name
   zTree = $.fn.zTree.getZTreeObj("treeDemo")
@@ -9,6 +12,9 @@ beforeEditName = (treeId, treeNode) ->
   # confirm "Start node '" + treeNode.name + "' editorial status?"
 
 beforeRemove = (treeId, treeNode) ->
+  if treeNode.name == 'Chapters'
+    return false
+
   className = (if className is "dark" then "" else "dark")
   showLog "[ " + getTime() + " beforeRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name
   zTree = $.fn.zTree.getZTreeObj("treeDemo")
@@ -96,6 +102,7 @@ zNodes = [
   pId: 0
   name: "Chapters"
   open: true
+  edit: false
   drag: false
  ]
 
