@@ -14,3 +14,7 @@ results
 
 node_modules
 npm-debug.log
+
+app.js
+public/javascripts/canvas.js
+public/javascripts/tree.js

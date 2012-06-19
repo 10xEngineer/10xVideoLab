@@ -5,7 +5,33 @@
 	br
 	b Font
 	br
+	| Font family
+	select#fontFamily
+		option(value='Serif') Serif
+		option(value='Arial') Arial
+		option(value='Sans-Serif') Sans-Serif
+		option(value='Tahoma') Tahoma
+		option(value='Verdana') Verdana
+		option(value='Lucida Sans Unicode') Lucida Sans Unicode
+	br
+	| Font size
+	select#fontSize
+		option(value='8') 8
+		option(value='10') 10
+		option(value='12') 12
+		option(value='14') 14
+		option(value='16') 16
+		option(value='18') 18
+		option(value='20') 20
+		option(value='22') 22
+	br
 	b Background
+	br
+	| Color 1
+	input#color1.color
+	br
+	| Color 2
+	input#color2.color
 #right
 	b Preview
 	#preview

@@ -1,26 +1,30 @@
-drawCanvas = (text) ->
+drawCanvas = ->
+  text = getNodeText()
+  if text ==''
+    return
+
   canvas = document.getElementById("canvas")
   context = canvas.getContext("2d")
   context.clearRect(0, 0, canvas.width, canvas.height)
 
   lingrad = context.createLinearGradient(0,0,canvas.width,canvas.height)
-  lingrad.addColorStop(0, '#000000')
-  # lingrad.addColorStop(0.5, '#fff')
-  # lingrad.addColorStop(0.5, '#66CC00')
-  lingrad.addColorStop(1, '#ffffff')
+  lingrad.addColorStop(0, '#'+$('#color1').val())
+  lingrad.addColorStop(1, '#'+$('#color2').val())
   context.fillStyle = lingrad
   context.fillRect(0,0,canvas.width,canvas.height)
 
-  context.font = "20pt Calibri"
+  context.font = $('#fontSize').val()+'px '+$('#fontFamily').val()
   context.fillStyle = "blue"
   context.fillText(text, 150, 100)
 
+getNodeText = ->
+  zTree = $.fn.zTree.getZTreeObj("treeDemo")
+  nodes = zTree.getSelectedNodes()
+  if nodes.length<1
+    alert 'please select a node first'
+    ''
+  else
+    nodes[0].name
 $ ->
   $('#previewButton').click ->
-    zTree = $.fn.zTree.getZTreeObj("treeDemo")
-    nodes = zTree.getSelectedNodes()
-    if nodes.length<1
-      alert 'please select a node first'
-    else
-      nodeName = nodes[0].name
-      drawCanvas nodeName
+      drawCanvas()
