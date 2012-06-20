@@ -12,28 +12,28 @@ drawCanvas = ->
 
   canvas = document.getElementById("canvas")
   context = canvas.getContext("2d")
+
+  canvas.width = 500
+  canvas.height = 375
+
   context.clearRect(0, 0, canvas.width, canvas.height)
 
   lingrad = context.createLinearGradient(0,0,canvas.width,canvas.height)
   lingrad.addColorStop(0, '#'+$('#color1').val())
   lingrad.addColorStop(1, '#'+$('#color2').val())
+
   context.fillStyle = lingrad
   context.fillRect(0,0,canvas.width,canvas.height)
 
-  ###
-  img = new Image
-  img.onload = ->
-    context.drawImage(img,0,0)
-  img.src = 'file:///tmp/1.gif'
-  ###
+  if $('#previewImage').prop('src')
+    img = new Image
+    img.src =$('#previewImage').prop('src')
+    context.drawImage(img,0,0,canvas.width,canvas.height)
 
-  img = new Image
-  img.src =$('#previewImage').prop('src')
-  context.drawImage(img,0,0)
-
+  context.textAlign="center"
   context.font = $('#fontSize').val()+'pt '+$('#fontFamily').val()
   context.fillStyle = '#'+$('#fontColor').val()
-  context.fillText(text, 150, 100)
+  context.fillText(text, canvas.width/2, 150)
 
 getNodeText = ->
   zTree = $.fn.zTree.getZTreeObj("treeDemo")

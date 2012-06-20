@@ -3,14 +3,16 @@
 	div.zTreeDemoBackground
 		ul#treeDemo.ztree
 	br
-	b Font
 	table
+		tr
+			td(colspan='2')
+				b Font
 		tr
 			td Font family
 			td
 				select#fontFamily
 					option(value='Andale Mono') Andale Mono
-					option(value='Arial') Arial
+					option(value='Arial',selected) Arial
 					option(value='Arial Black') Arial Black
 					option(value='Courier New') Courier New
 					option(value='Helvetica') Helvetica
@@ -36,13 +38,19 @@
 					option(value='18') 18pt
 					option(value='20') 20pt
 					option(value='22') 22pt
+					option(value='24') 24pt
+					option(value='26') 26pt
+					option(value='28') 28pt
+					option(value='30') 30pt
+					option(value='32') 32pt
+					option(value='34',selected) 34pt
 		tr
 			td Font color
 			td
 				input#fontColor.color(value='000000')
-	br
-	b Background
-	table
+		tr
+			td(colspan='2')
+				b Background
 		tr
 			td Color 1
 			td
