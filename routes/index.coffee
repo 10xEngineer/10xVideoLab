@@ -55,8 +55,8 @@ exports.generateVideo = (req,res) ->
   out = []
   await
     for node,i in chapterNodes
-      console.log i
-      createImage req,node,i,taskId,defer out[i]
+      console.log i+1
+      createImage req,node,i+1,taskId,defer out[i]
   console.log out
 
   command = 'cd '+__dirname+'/../public/tasks/'+taskId+';ffmpeg -f image2 -r 1  -i %d.png video.mp4'
