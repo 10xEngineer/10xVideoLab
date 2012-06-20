@@ -11,10 +11,12 @@ lib-cov
 pids
 logs
 results
+public/tasks
 
 node_modules
 npm-debug.log
 
+uploads
 app.js
 public/javascripts/canvas.js
 public/javascripts/tree.js

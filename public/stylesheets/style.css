@@ -21,14 +21,14 @@ a {
 
 #preview {
 	margin-top: 10px;
-	width : 500px;
-	height: 375px;
+	width : 600px;
+	height: 450px;
 	border: 2px solid;
 }
 
 #canvas {
-	width:  500px;
-	height: 375px;
+	width:  600px;
+	height: 450px;
 }
 
 #previewImage {

@@ -1,82 +1,88 @@
-#left
-	b Chapters
-	div.zTreeDemoBackground
-		ul#treeDemo.ztree
-	br
-	table
-		tr
-			td(colspan='2')
-				b Font
-		tr
-			td Font family
-			td
-				select#fontFamily
-					option(value='Andale Mono') Andale Mono
-					option(value='Arial',selected) Arial
-					option(value='Arial Black') Arial Black
-					option(value='Courier New') Courier New
-					option(value='Helvetica') Helvetica
-					option(value='Lucida Sans Unicode') Lucida Sans Unicode
-					option(value='Sans-Serif') Sans-Serif
-					option(value='Serif') Serif
-					option(value='Symbol') Symbol
-					option(value='Tahoma') Tahoma
-					option(value='Terminal') Terminal
-					option(value='Times New Roman') Times New Romain
-					option(value='Verdana') Verdana
-					option(value='Webdings') Webdings
+form(method='post',enctype="multipart/form-data")
+	#left
+		b Chapters
+		div.zTreeDemoBackground
+			ul#treeDemo.ztree
+		br
+		table
+			tr
+				td(colspan='2')
+					b Font
+			tr
+				td Font family
+				td
+					select#fontFamily(name='fontFamily')
+						option(value='Andale Mono') Andale Mono
+						option(value='Arial',selected) Arial
+						option(value='Arial Black') Arial Black
+						option(value='Courier New') Courier New
+						option(value='Helvetica') Helvetica
+						option(value='Lucida Sans Unicode') Lucida Sans Unicode
+						option(value='Sans-Serif') Sans-Serif
+						option(value='Serif') Serif
+						option(value='Symbol') Symbol
+						option(value='Tahoma') Tahoma
+						option(value='Terminal') Terminal
+						option(value='Times New Roman') Times New Romain
+						option(value='Verdana') Verdana
+						option(value='Webdings') Webdings
 
-		tr
-			td Font size
-			td
-				select#fontSize
-					option(value='8') 8pt
-					option(value='10') 10pt
-					option(value='12') 12pt
-					option(value='14') 14pt
-					option(value='16') 16pt
-					option(value='18') 18pt
-					option(value='20') 20pt
-					option(value='22') 22pt
-					option(value='24') 24pt
-					option(value='26') 26pt
-					option(value='28') 28pt
-					option(value='30') 30pt
-					option(value='32') 32pt
-					option(value='34',selected) 34pt
-		tr
-			td Font color
-			td
-				input#fontColor.color(value='000000')
-		tr
-			td(colspan='2')
-				b Background
-		tr
-			td Color 1
-			td
-				input#color1.color
-		tr
-			td Color 2
-			td
-				input#color2.color
-		tr
-			td Image
-			td
-				input#imageFile(type='file',onchange='readURL(this);')
-		tr
-			td Image Preview
-			td
-				img#previewImage
+			tr
+				td Font size
+				td
+					select#fontSize(name='fontSize')
+						option(value='8') 8pt
+						option(value='10') 10pt
+						option(value='12') 12pt
+						option(value='14') 14pt
+						option(value='16') 16pt
+						option(value='18') 18pt
+						option(value='20') 20pt
+						option(value='22') 22pt
+						option(value='24') 24pt
+						option(value='26') 26pt
+						option(value='28') 28pt
+						option(value='30') 30pt
+						option(value='32') 32pt
+						option(value='34',selected) 34pt
+			tr
+				td Font color
+				td
+					input#fontColor.color(name='fontColor',value='000000')
+			tr
+				td(colspan='2')
+					b Background
+			tr
+				td Color 1
+				td
+					input#color1.color(name='gradientColor1')
+			tr
+				td Color 2
+				td
+					input#color2.color(name='gradientColor2')
+			tr
+				td Image
+				td
+					input#imageFile(name='backgroundImage',type='file',onchange='readURL(this);')
+			tr
+				td Image Preview
+				td
+					img#previewImage
 
 
-#right
-	b Preview
-	#preview
-		canvas#canvas
-	
+	#right
+		b Preview
+		#preview
+			canvas#canvas
 
-	b Background Music
-	br
-	#buttons
-		button#previewButton Preview
-		button#generateButton Generate
+		b Background Music
+		br
+		input(type='file',name='backgroundMusic')
+		input#chapterNodes(type='hidden',name='chapterNodes')
+		br
+		br
+		br
+		#buttons
+			button#previewButton Preview
+			button#getNodes Get nodes
+			button#generateButton(type='submit') Generate

@@ -13,8 +13,8 @@ drawCanvas = ->
   canvas = document.getElementById("canvas")
   context = canvas.getContext("2d")
 
-  canvas.width = 500
-  canvas.height = 375
+  canvas.width = 600
+  canvas.height = 450
 
   context.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -45,4 +45,7 @@ getNodeText = ->
     nodes[0].name
 $ ->
   $('#previewButton').click ->
-      drawCanvas()
+    drawCanvas()
+  $('#generateButton').click ->
+    zTree = $.fn.zTree.getZTreeObj("treeDemo")
+    $('#chapterNodes').val $.toJSON(zTree.transformToArray(zTree.getNodes()))
